@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>首页</title>
+
+<!DOCTYPE html> <!-- 声明 HTML5 文档类型 -->
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"> <!-- 根元素并指定语言与 Thymeleaf 命名空间 -->
+<head> <!-- 文档头部区域 -->
+    <meta charset="UTF-8"> <!-- 设置字符编码 -->
+    <title>首页</title> <!-- 浏览器标签标题 -->
 </head>
-<body>
-<div th:insert="fragments/header :: header"></div>
-<h1>欢迎来到课程站点</h1>
-<p>这是一个使用 Servlet 与 Thymeleaf 构建的最小示例站点。</p>
+<body> <!-- 页面主体 -->
+<div th:insert="fragments/header :: header"></div> <!-- 引入通用导航 -->
+<h1>欢迎来到课程站点</h1> <!-- 主标题 -->
+<p>这是一个使用 Servlet 与 Thymeleaf 构建的最小示例站点。</p> <!-- 简短介绍文案 -->
+
 </body>
 </html>

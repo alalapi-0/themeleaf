@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>标签演示</title>
+
+<!DOCTYPE html> <!-- HTML5 文档声明 -->
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"> <!-- 指定语言与 Thymeleaf 命名空间 -->
+<head> <!-- 头部信息 -->
+    <meta charset="UTF-8"> <!-- 字符编码 -->
+    <title>标签演示</title> <!-- 页面标题 -->
 </head>
-<body>
-<div th:insert="fragments/header :: header"></div>
-<h1>常用标签演示</h1>
-<ul>
-    <li>使用 <code>th:text</code> 渲染动态文本</li>
-    <li>使用 <code>th:if</code> 控制内容显示</li>
-    <li>使用 <code>th:each</code> 遍历集合</li>
+<body> <!-- 主体内容 -->
+<div th:insert="fragments/header :: header"></div> <!-- 引入公共导航 -->
+<h1>常用标签演示</h1> <!-- 页面主标题 -->
+<ul> <!-- 使用列表展示示例 -->
+    <li>使用 <code>th:text</code> 渲染动态文本</li> <!-- th:text 用于输出文本 -->
+    <li>使用 <code>th:if</code> 控制内容显示</li> <!-- th:if 条件渲染 -->
+    <li>使用 <code>th:each</code> 遍历集合</li> <!-- th:each 列表循环 -->
+
 </ul>
 </body>
 </html>
