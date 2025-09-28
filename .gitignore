@@ -1,10 +1,13 @@
+
 /target
 *.class
 *.log
 *.iml
 .idea/
+
 /.classpath
 /.project
 /.settings/
 .DS_Store
 /.mvn/wrapper/maven-wrapper.jar
+

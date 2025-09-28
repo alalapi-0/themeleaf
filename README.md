@@ -43,6 +43,7 @@
 
 ## 验证路径
 
+
 - http://localhost:8080/
 - http://localhost:8080/tags
 - http://localhost:8080/courses
@@ -82,3 +83,4 @@
 - 读取 `id` 参数并查询单个课程。
 - 若查询不到课程，则在模板内提示“未找到”并提供返回列表的链接。
 - 若课程存在，则展示标题、级别、简介，并用 `th:switch` 显示 BEGINNER/ADVANCED 的提示，同时根据 `minAge` 控制成人向标签。
+

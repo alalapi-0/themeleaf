@@ -37,5 +37,6 @@ public class InMemoryCourseRepo { // 内存中的课程仓库
 
     public Optional<Course> findById(int id) { // 按编号查找课程
         return courses.stream().filter(c -> c.getId() == id).findFirst(); // 使用流匹配并返回 Optional
+
     }
 }

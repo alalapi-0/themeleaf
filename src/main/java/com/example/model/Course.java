@@ -58,5 +58,6 @@ public class Course { // 定义课程实体类
     @Override
     public int hashCode() { // 重写 hashCode 保持一致
         return Objects.hash(id); // 基于 id 生成哈希值
+
     }
 }

@@ -25,5 +25,6 @@ public class PageServlet extends HttpServlet { // 简单页面渲染 Servlet
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name()); // 设置编码
         resp.setContentType("text/html;charset=UTF-8"); // 设置响应类型
         templateEngine.process(view, context, resp.getWriter()); // 渲染并输出页面
+
     }
 }
