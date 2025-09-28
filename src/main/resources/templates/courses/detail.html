@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程详情</title>
+</head>
+<body>
+<div th:insert="fragments/header :: header"></div>
+<h1>课程详情</h1>
+<div th:if="${course} == null">
+    <p th:text="'未找到编号为 ' + ${id} + ' 的课程。'"></p>
+    <a href="/courses">返回课程列表</a>
+</div>
+<div th:if="${course} != null">
+    <h2 th:text="${course.title}"></h2>
+    <p>
+        课程级别：
+        <span th:switch="${course.level}">
+            <span th:case="'BEGINNER'">入门课程</span>
+            <span th:case="'ADVANCED'">进阶课程</span>
+            <span th:case="*" th:text="${course.level}"></span>
+        </span>
+    </p>
+    <p th:text="${course.description}"></p>
+    <p th:if="${course.minAge} >= 18">本课程适合成年人学习。</p>
+    <p th:if="${course.requireRole} == 'ADMIN'">管理员专享课程，请确认权限。</p>
+    <a href="/courses">返回课程列表</a>
+</div>
+</body>
+</html>
