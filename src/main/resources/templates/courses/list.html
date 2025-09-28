@@ -1,0 +1,48 @@
+<!DOCTYPE html> <!-- HTML5 文档声明 -->
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"> <!-- 根元素并启用 Thymeleaf -->
+<head> <!-- 头部信息 -->
+    <meta charset="UTF-8"> <!-- 设置编码 -->
+    <title>课程列表</title> <!-- 页面标题 -->
+</head>
+<body> <!-- 页面主体 -->
+<div th:insert="fragments/header :: header"></div> <!-- 引入导航栏 -->
+<h1>课程列表</h1> <!-- 页面主标题 -->
+<form method="get" action="" accept-charset="UTF-8"> <!-- 搜索与分页表单 -->
+    <label> <!-- 关键字输入容器 -->
+        关键字： <!-- 字段说明 -->
+        <input type="text" name="keyword" th:value="${keyword}" placeholder="输入标题或简介" /> <!-- 关键字输入框回显 -->
+    </label>
+    <label> <!-- 分页大小输入容器 -->
+        每页条数： <!-- 字段说明 -->
+        <input type="number" name="size" min="1" th:value="${size}" /> <!-- 每页条数输入并回显 -->
+    </label>
+    <button type="submit">搜索</button> <!-- 提交查询按钮 -->
+</form>
+<p th:text="'共 ' + ${total} + ' 条课程，当前第 ' + ${page} + ' 页。'"></p> <!-- 显示统计信息 -->
+<table border="1" cellpadding="8" cellspacing="0"> <!-- 简单数据表格 -->
+    <thead> <!-- 表头区域 -->
+    <tr> <!-- 表头行 -->
+        <th>ID</th> <!-- 显示编号 -->
+        <th>标题</th> <!-- 显示标题 -->
+        <th>级别</th> <!-- 显示等级 -->
+        <th>简介</th> <!-- 显示简介 -->
+        <th>标签</th> <!-- 显示标签 -->
+        <th>操作</th> <!-- 操作列 -->
+    </tr>
+    </thead>
+    <tbody> <!-- 数据行集合 -->
+    <tr th:each="c : ${courses}"> <!-- 遍历课程集合 -->
+        <td th:text="${c.id}"></td> <!-- 展示课程编号 -->
+        <td th:text="${c.title}"></td> <!-- 展示课程标题 -->
+        <td th:text="${c.level}"></td> <!-- 展示课程级别 -->
+        <td th:text="${c.description}"></td> <!-- 展示课程简介 -->
+        <td> <!-- 标签列 -->
+            <span th:if="${c.minAge} >= 18">成人向</span> <!-- 满足成年年龄提示 -->
+            <span th:if="${c.requireRole} == 'ADMIN'">管理员专享</span> <!-- 管理员专享提示 -->
+        </td>
+        <td><a th:href="@{'/courses/detail'(id=${c.id})}">查看详情</a></td> <!-- 详情跳转链接 -->
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
